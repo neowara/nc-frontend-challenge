@@ -1,21 +1,4 @@
-/**
- * Main Application Component
- *
- * This is the root component that orchestrates the countdown timer application.
- * It manages global state for event data and provides a clean separation of concerns
- * between the form input and timer display components.
- *
- * Architecture:
- * - Uses Angular's modern standalone component approach
- * - Leverages signals for reactive state management
- * - Implements localStorage for data persistence across browser sessions
- * - Follows unidirectional data flow patterns
- *
- * State Management:
- * - Event name and date are stored as signals for reactivity
- * - Data is automatically persisted to localStorage on changes
- * - Default values ensure the app works out-of-the-box
- */
+// Main app component - handles the event data and passes it down to child components
 
 import { Component, signal } from '@angular/core'
 import { RouterOutlet } from '@angular/router'
@@ -30,34 +13,16 @@ import { EventFormComponent } from './event-form/event-form'
   styleUrl: './app.scss',
 })
 export class App {
-  /**
-   * Reactive signals for event data with localStorage persistence
-   *
-   * Using signals provides:
-   * - Automatic reactivity across components
-   * - Better performance with fine-grained updates
-   * - Type safety with TypeScript
-   *
-   * Default values ensure the app demonstrates functionality immediately
-   */
+  // Store event data in signals for reactivity + persist to localStorage
+  // Default to midsummer because why not :)
   eventName = signal(localStorage.getItem('eventName') || 'Midsummer Eve')
   eventDate = signal(localStorage.getItem('eventDate') || '2025-06-21')
 
-  /**
-   * Handle event name changes from the form component
-   *
-   * @param name - New event name from user input
-   */
   onEventNameChange(name: string) {
     this.eventName.set(name)
     localStorage.setItem('eventName', name)
   }
 
-  /**
-   * Handle event date changes from the form component
-   *
-   * @param date - New event date in ISO format (YYYY-MM-DD)
-   */
   onEventDateChange(date: string) {
     this.eventDate.set(date)
     localStorage.setItem('eventDate', date)

@@ -1,31 +1,16 @@
-/**
- * Main Application Layout
- * 
- * Architecture:
- * - CSS Grid for modern, flexible layout
- * - Container queries for future-proof responsive design
- * - Animated background for visual appeal
- * - Mobile-first responsive approach
- * 
- * Design Goals:
- * - Clean, modern aesthetic following Natural Cycles brand
- * - Optimal text scaling across all screen sizes
- * - Smooth animations and transitions
- * - Professional appearance suitable for production
- */
+// Main app layout with CSS Grid and animated background
 
-/* Main application container */
 .main {
   min-height: 100vh;
-  min-height: 100dvh; /* Modern viewport units for better mobile support */
+  min-height: 100dvh; // Better mobile support
   display: grid;
-  place-items: center; /* Center content both horizontally and vertically */
+  place-items: center;
   background: var(--gradient-background);
   padding: 1rem;
   position: relative;
-  overflow: hidden; /* Contain animated background */
+  overflow: hidden;
 
-  /* Animated dotted background pattern inspired by Natural Cycles design */
+  // Animated dotted background
   &::before {
     content: '';
     position: absolute;
@@ -40,12 +25,12 @@
     );
     background-size: 50px 50px;
     animation: float 20s ease-in-out infinite;
-    pointer-events: none; /* Don't interfere with user interactions */
-    z-index: 0; /* Behind main content */
+    pointer-events: none;
+    z-index: 0;
   }
 }
 
-/* Subtle floating animation for background dots */
+// Subtle floating animation
 @keyframes float {
   0%,
   100% {
@@ -59,18 +44,18 @@
   }
 }
 
-/* Content grid container */
+// Content grid container
 .content {
   display: grid;
   gap: 2rem;
   width: 100%;
-  max-width: 1200px; /* Optimal reading width */
-  container-type: inline-size; /* Enable container queries for components */
+  max-width: 1200px;
+  container-type: inline-size; // Enable container queries
   position: relative;
-  z-index: 1; /* Ensure content appears above animated background */
+  z-index: 1;
 
-  /* Desktop layout: form on left, countdown on right */
-  grid-template-columns: 1fr 2fr; /* Form takes 1/3, countdown takes 2/3 */
+  // Desktop: form on left, countdown on right
+  grid-template-columns: 1fr 2fr;
   align-items: center;
 }
 
@@ -85,13 +70,12 @@
   }
 }
 
-/* Mobile phones and small screens */
 @media (max-width: 480px) {
   .main {
-    padding: 0.5rem; /* Reduced padding for more content space */
+    padding: 0.5rem;
   }
 
   .content {
-    gap: 1rem; /* Tighter spacing for mobile */
+    gap: 1rem;
   }
 }
