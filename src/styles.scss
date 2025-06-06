@@ -1,22 +1,10 @@
-/**
- * Global Styles for Natural Cycles Frontend Challenge
- * 
- * This file implements Josh Comeau's Modern CSS Reset along with
- * custom properties and global styles following Natural Cycles
- * design system principles.
- * 
- * Architecture:
- * - Modern CSS Reset for cross-browser consistency
- * - Custom properties for maintainable theming
- * - Typography optimizations for better readability
- * - Performance-focused font loading
- */
+// Global styles with Josh Comeau's modern CSS reset
+// Using Inter font and Natural Cycles brand colors
 
-/* Import Google Fonts with display=swap for performance */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
 
-/* Josh Comeau's Modern CSS Reset */
-/* https://www.joshwcomeau.com/css/custom-css-reset/ */
+// Josh Comeau's Modern CSS Reset
+// https://www.joshwcomeau.com/css/custom-css-reset/
 
 /*
   1. Use a more-intuitive box-sizing model.
