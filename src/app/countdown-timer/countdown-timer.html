@@ -1,1 +1,10 @@
-<p>countdown-timer works!</p>
+<div class="countdown-timer">
+  <app-fit-text>
+    <span class="event-title">Time to {{ eventName }}</span>
+  </app-fit-text>
+  <app-fit-text>
+    <span class="countdown-value">
+      {{ timeLeft().days }} days, {{ timeLeft().hours }} h, {{ timeLeft().minutes }} m, {{ timeLeft().seconds }} s
+    </span>
+  </app-fit-text>
+</div>
