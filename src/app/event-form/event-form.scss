@@ -1,31 +1,19 @@
-/**
- * Event Form Component
- * 
- * Features:
- * - Glass morphism design with backdrop filters
- * - Accessible form styling with proper focus states
- * - Mobile-optimized input sizes to prevent zoom
- * - Smooth hover and transition effects
- * - Modern design following Natural Cycles brand aesthetic
- */
+// Event form with glass morphism design
 
-/* Main form container with glass morphism effect */
 .event-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   padding: 2rem;
 
-  /* Glass morphism styling */
+  // Glass effect
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
 
-  /* Smooth interactions */
   transition: all 0.3s ease;
 
-  /* Hover effect for enhanced interactivity */
   &:hover {
     background: rgba(255, 255, 255, 0.15);
     transform: translateY(-2px);
