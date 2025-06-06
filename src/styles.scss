@@ -1,1 +1,151 @@
-/* You can add global styles to this file, and also import other style files */
+/**
+ * Global Styles for Natural Cycles Frontend Challenge
+ * 
+ * This file implements Josh Comeau's Modern CSS Reset along with
+ * custom properties and global styles following Natural Cycles
+ * design system principles.
+ * 
+ * Architecture:
+ * - Modern CSS Reset for cross-browser consistency
+ * - Custom properties for maintainable theming
+ * - Typography optimizations for better readability
+ * - Performance-focused font loading
+ */
+
+/* Import Google Fonts with display=swap for performance */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+
+/* Josh Comeau's Modern CSS Reset */
+/* https://www.joshwcomeau.com/css/custom-css-reset/ */
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* Modern text wrapping for better typography */
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/* Custom Properties - Natural Cycles Design System */
+:root {
+  /* Brand Colors */
+  --color-primary: #6b46c1; /* Purple - Primary brand color */
+  --color-secondary: #ec4899; /* Pink - Secondary brand color */
+  --color-accent: #f97316; /* Orange - Accent color */
+  --color-white: #ffffff; /* Pure white for text and UI */
+  --color-text: #1f2937; /* Dark gray for text */
+
+  /* Gradient Definitions */
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 50%,
+    var(--color-accent) 100%
+  );
+  --gradient-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+  /* Typography */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Global Typography and Base Styles */
+body {
+  font-family: var(--font-family);
+  background: var(--gradient-background);
+  color: var(--color-white);
+
+  /* Optimize font rendering */
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'kern' 1;
+  font-kerning: normal;
+}
+
+/* Ensure smooth scrolling where supported */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
