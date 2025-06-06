@@ -1,8 +1,16 @@
 <main class="main">
   <!-- Countdown App Layout -->
   <div class="content">
-    <app-countdown-timer />
-    <app-event-form />
+    <app-countdown-timer
+      [eventName]="eventName()"
+      [eventDate]="eventDate()"
+    />
+    <app-event-form
+      [eventName]="eventName()"
+      [eventDate]="eventDate()"
+      (eventNameChange)="onEventNameChange($event)"
+      (eventDateChange)="onEventDateChange($event)"
+    />
   </div>
 </main>
 <router-outlet />
