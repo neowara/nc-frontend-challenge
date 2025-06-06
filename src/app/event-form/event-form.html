@@ -1,1 +1,19 @@
-<p>event-form works!</p>
+<form class="event-form" autocomplete="off">
+  <label>
+    Title
+    <input
+      type="text"
+      [value]="eventName"
+      (input)="onNameInput($event)"
+      placeholder="Event name"
+    />
+  </label>
+  <label>
+    Date
+    <input
+      type="date"
+      [value]="eventDate"
+      (input)="onDateInput($event)"
+    />
+  </label>
+</form>
