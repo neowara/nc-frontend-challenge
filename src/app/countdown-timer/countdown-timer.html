@@ -1,10 +1,21 @@
 <div class="countdown-timer">
-  <app-fit-text>
-    <span class="event-title">Time to {{ eventName }}</span>
-  </app-fit-text>
-  <app-fit-text>
-    <span class="countdown-value">
-      {{ timeLeft().days }} days, {{ timeLeft().hours }} h, {{ timeLeft().minutes }} m, {{ timeLeft().seconds }} s
+  <div class="event-title">Time to {{ eventName }}</div>
+  <div class="countdown-value">
+    <span class="time-unit">
+      <span class="number">{{ timeLeft().days }}</span
+      ><span class="label">d</span>
     </span>
-  </app-fit-text>
+    <span class="time-unit">
+      <span class="number">{{ timeLeft().hours }}</span
+      ><span class="label">h</span>
+    </span>
+    <span class="time-unit">
+      <span class="number">{{ timeLeft().minutes }}</span
+      ><span class="label">m</span>
+    </span>
+    <span class="time-unit">
+      <span class="number">{{ timeLeft().seconds }}</span
+      ><span class="label">s</span>
+    </span>
+  </div>
 </div>

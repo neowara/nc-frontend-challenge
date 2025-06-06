@@ -1,0 +1,100 @@
+/**
+ * Countdown Timer Component
+ * 
+ * Features:
+ * - Fluid typography that scales with viewport
+ * - Stable layout that prevents text jumping
+ * - Monospace numbers for consistent width
+ * - Grouped time units for better readability
+ * - Container queries for modern responsive design
+ */
+
+/* Main countdown container */
+.countdown-timer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+  container-type: inline-size; /* Enable container queries */
+}
+
+/* Event title with gradient text effect */
+.event-title {
+  font-size: clamp(1.5rem, 4vw, 3rem); /* Fluid typography */
+  font-weight: 700;
+  line-height: 1.2;
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* Fallback for unsupported browsers */
+
+  /* Improve text rendering on high-DPI displays */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Countdown display container */
+.countdown-value {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: clamp(0.5rem, 2vw, 1.5rem); /* Responsive spacing */
+  font-weight: 900;
+  line-height: 1;
+  color: var(--color-white);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+
+  /* Prevent layout shifts during countdown updates */
+  min-height: 1em;
+}
+
+/* Individual time unit containers (e.g., "25d", "10h") */
+.time-unit {
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap; /* Keep numbers and labels together */
+  min-width: max-content; /* Prevent compression */
+}
+
+/* Number styling with consistent width */
+.number {
+  font-size: clamp(2rem, 6vw, 5rem); /* Fluid typography */
+  font-variant-numeric: tabular-nums; /* Monospace numbers for stability */
+  min-width: 1.5ch; /* Reserve space to prevent layout jumps */
+  text-align: right;
+  display: inline-block;
+
+  /* Enhanced readability */
+  font-feature-settings: 'tnum'; /* Enable tabular numbers */
+}
+
+/* Time unit labels (d, h, m, s) */
+.label {
+  font-size: clamp(1.2rem, 3.5vw, 3rem); /* Proportional to numbers */
+  font-weight: 600;
+  margin-left: 0.1em; /* Tight spacing with numbers */
+  opacity: 0.9; /* Subtle visual hierarchy */
+}
+
+/* Container queries for optimal small screen display */
+@container (max-width: 400px) {
+  .countdown-value {
+    gap: clamp(0.25rem, 1vw, 0.75rem);
+    flex-wrap: wrap; /* Allow wrapping on very small screens */
+    justify-content: center;
+  }
+
+  .time-unit {
+    flex: 0 0 auto; /* Prevent shrinking */
+  }
+
+  .number {
+    font-size: clamp(1.6rem, 8vw, 3rem);
+    min-width: 1.2ch; /* Adjusted for smaller screens */
+  }
+
+  .label {
+    font-size: clamp(1rem, 4vw, 2rem);
+  }
+}
