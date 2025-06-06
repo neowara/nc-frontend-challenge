@@ -169,5 +169,10 @@ This project demonstrates **modern frontend development practices** suitable for
 
 ---
 
+## 📚 Additional Documentation
+
+- **[Production Improvements](./PRODUCTION_IMPROVEMENTS.md)**: Comprehensive analysis of enhancements needed for enterprise-scale deployment
+- **[Technical Solution](./SOLUTION.md)**: Detailed implementation approach and CSS architecture decisions
+
 **Built with Angular 18+, TypeScript, and modern CSS**  
 *Challenge by Natural Cycles - Demonstrating production-ready frontend development*
