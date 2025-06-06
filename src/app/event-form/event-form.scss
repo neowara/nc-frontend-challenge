@@ -1,0 +1,108 @@
+/**
+ * Event Form Component
+ * 
+ * Features:
+ * - Glass morphism design with backdrop filters
+ * - Accessible form styling with proper focus states
+ * - Mobile-optimized input sizes to prevent zoom
+ * - Smooth hover and transition effects
+ * - Modern design following Natural Cycles brand aesthetic
+ */
+
+/* Main form container with glass morphism effect */
+.event-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+
+  /* Glass morphism styling */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  /* Smooth interactions */
+  transition: all 0.3s ease;
+
+  /* Hover effect for enhanced interactivity */
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Form label styling */
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.025em; /* Improved readability */
+}
+
+/* Input field styling */
+input {
+  padding: 0.75rem 1rem;
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--color-white);
+  font-size: 1rem;
+  font-weight: 500;
+
+  /* Smooth transitions for all state changes */
+  transition: all 0.3s ease;
+
+  /* Enhanced backdrop effect */
+  backdrop-filter: blur(5px);
+
+  /* Placeholder styling */
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+  }
+
+  /* Focus state with brand color accent */
+  &:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.2); /* Brand color focus ring */
+    transform: translateY(-1px);
+  }
+
+  /* Hover effect for better UX */
+  &:hover:not(:focus) {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 480px) {
+  .event-form {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  input {
+    padding: 0.75rem;
+    font-size: 16px; /* Prevents zoom on iOS Safari */
+  }
+
+  label {
+    font-size: 0.85rem;
+  }
+}
+
+/* Very small screens optimization */
+@media (max-width: 320px) {
+  .event-form {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+}
