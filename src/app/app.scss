@@ -1,8 +1,8 @@
-// Main app layout with CSS Grid and animated background
+// Main app layout with animated background
 
 .main {
   min-height: 100vh;
-  min-height: 100dvh; // Better mobile support
+  min-height: 100dvh;
   display: grid;
   place-items: center;
   background: var(--gradient-background);
@@ -10,7 +10,14 @@
   position: relative;
   overflow: hidden;
 
-  // Animated dotted background
+  @supports not (height: 100dvh) {
+    min-height: 100vh;
+  }
+
+  @media screen and (max-width: 768px) {
+    min-height: calc(100vh - env(safe-area-inset-bottom));
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -27,10 +34,10 @@
     animation: float 20s ease-in-out infinite;
     pointer-events: none;
     z-index: 0;
+    opacity: 0.6;
   }
 }
 
-// Subtle floating animation
 @keyframes float {
   0%,
   100% {
@@ -44,29 +51,39 @@
   }
 }
 
-// Content grid container
 .content {
   display: grid;
   gap: 2rem;
   width: 100%;
-  max-width: 1200px;
-  container-type: inline-size; // Enable container queries
   position: relative;
   z-index: 1;
-
-  // Desktop: form on left, countdown on right
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
   align-items: center;
+  justify-items: center;
+
+  // Mobile - full width
+  @media (max-width: 767px) {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  // Desktop - constrained width
+  @media (min-width: 768px) {
+    max-width: 600px;
+  }
+
+  @supports not (display: grid) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-/* Responsive design: Mobile-first approach */
-
-/* Tablet and small desktop screens */
 @media (max-width: 768px) {
   .content {
-    grid-template-columns: 1fr; /* Single column layout */
     gap: 1.5rem;
-    max-width: 500px; /* Optimal mobile width */
+    max-width: 500px;
   }
 }
 
