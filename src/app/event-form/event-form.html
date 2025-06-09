@@ -1,15 +1,33 @@
 <form class="event-form" autocomplete="off">
-  <label>
-    Title
-    <input
-      type="text"
-      [value]="eventName"
-      (input)="onNameInput($event)"
-      placeholder="Event name"
-    />
-  </label>
-  <label>
-    Date
-    <input type="date" [value]="eventDate" (input)="onDateInput($event)" />
-  </label>
+  <div class="form-fields">
+    <label>
+      Title
+      <input
+        type="text"
+        [value]="eventName"
+        (input)="onNameInput($event)"
+        placeholder="Event name"
+      />
+    </label>
+    <label>
+      Date
+      <div class="date-input-container" (click)="onDatePickerClick($event)">
+        <input
+          type="text"
+          class="date-display-input"
+          [value]="formattedDate"
+          readonly
+          placeholder="Choose a date"
+        />
+        <input
+          type="date"
+          class="hidden-date-input"
+          [value]="eventDate"
+          (change)="onDateChange($event)"
+          #hiddenDateInput
+        />
+        <span class="calendar-icon"></span>
+      </div>
+    </label>
+  </div>
 </form>
