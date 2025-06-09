@@ -17,6 +17,7 @@ I created a countdown timer that's actually nice to use. Here's what makes it sp
 - **Responsive design** that looks good on phones and desktops  
 - **Animated background** with floating dots (inspired by NC's style)
 - **Glass effect form** because modern UI should feel modern
+- **Custom date picker** that works great on all devices
 - **Stable text** that doesn't jump around when numbers change
 - **Natural Cycles branding** with the right colors and feel
 
@@ -29,6 +30,8 @@ I created a countdown timer that's actually nice to use. Here's what makes it sp
 **Josh Comeau's CSS Reset**: Started with a solid foundation instead of fighting browser defaults.
 
 **Glass Morphism**: Because it looks professional and fits the modern aesthetic NC is going for.
+
+**Custom Date Picker**: Instead of fighting with browser inconsistencies, I built a custom date picker using the technique from [this dev.to article](https://dev.to/codeclown/styling-a-native-date-input-into-a-custom-no-library-datepicker-2in). It gives us a consistent, beautiful interface while still using the native date picker functionality under the hood.
 
 ## 🚀 Quick Start
 
@@ -76,6 +79,8 @@ src/
 - Custom properties for theming
 - `clamp()` for fluid typography that scales perfectly
 - Backdrop filters for that glass effect
+
+**Custom Date Picker**: I went with a hybrid approach that gives us the best of both worlds - a beautiful, consistent UI that still leverages the native date picker functionality. The technique involves layering a styled display input over a hidden native date input, so users get the native date picker experience when they click, but see our custom styling.
 
 **Mobile-First**: Built responsive from the ground up, not as an afterthought.
 

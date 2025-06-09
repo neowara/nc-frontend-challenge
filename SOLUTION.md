@@ -15,6 +15,7 @@ I started with Josh Comeau's modern CSS reset because browser defaults are terri
 
 ### Styling Choices
 - **Glass morphism** because it looks modern and fits the NC aesthetic
+- **Custom date picker** that works consistently across all browsers and devices
 - **Stable text layout** using tabular numbers so the countdown doesn't jump around
 - **Animated background** with floating dots (subtle, not distracting)
 - **Mobile-first** responsive design because that's how people actually use the web
@@ -50,6 +51,19 @@ I used Angular's newer signals instead of traditional RxJS observables. They're 
   }
 }
 ```
+
+## The Custom Date Picker
+
+One thing that drove me crazy was how inconsistent native date inputs look across browsers. Safari does one thing, Chrome does another, and don't even get me started on older browsers.
+
+I found this clever approach on [dev.to](https://dev.to/codeclown/styling-a-native-date-input-into-a-custom-no-library-datepicker-2in) that gives you the best of both worlds:
+
+- Users still get the native date picker experience when they click
+- But they see your custom styling instead of the browser's default look
+- Works consistently across all modern browsers
+- No heavy date picker libraries needed
+
+The technique is pretty straightforward: layer a styled display input over a hidden native date input. When someone clicks anywhere on the visible input, it triggers the hidden native date picker. Simple but effective.
 
 ## Responsive Design
 
