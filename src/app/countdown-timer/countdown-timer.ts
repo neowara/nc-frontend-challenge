@@ -28,12 +28,9 @@ export class CountdownTimerComponent implements OnChanges {
 
   constructor() {
     this.eventDateSignal.set(this.eventDate)
-
-    // Update every second - could optimize with RxJS later
     setInterval(() => this.now.set(new Date()), 1000)
   }
 
-  // Recalculates whenever time or date changes
   timeLeft = computed(() => {
     const dateStr = this.eventDateSignal()
     if (!dateStr) return { days: 0, hours: 0, minutes: 0, seconds: 0 }
